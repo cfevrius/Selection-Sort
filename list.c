@@ -25,7 +25,7 @@ void  list_display(List* l){
     printf("]\n");
 }
 
-void  list_insert(List* l, int i){
+void  list_append(List* l, int i){
     Node* new_node =  node_create(i);
     if (l->head == NULL) {
         l->head = new_node;

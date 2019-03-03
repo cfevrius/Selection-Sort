@@ -14,7 +14,7 @@ int main(int argc, char* argv[]){
     /* Loop through all elements of the array and add 
      * them to the linked-List. */
     for(int i = 0; i < node_elements; i++){
-        list_insert(l, data_to_sort[i]);
+        list_append(l, data_to_sort[i]);
     }
 
     list_display(l);
