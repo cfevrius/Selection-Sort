@@ -1,14 +1,15 @@
 CC=gcc
+CFLAGS=-Wall -std=gnu99
 OBJ=bubble_sort
 
 $(OBJ): bubble_sort.c list.o node.o
-	$(CC) -o $@ $< list.o node.o
+	$(CC) $(CFLAGS) -o $@ $< list.o node.o
 
 node.o: node.c node.h
-	$(CC) -c $<
+	$(CC) $(CFLAGS) -c $<
 
 list.o: list.c list.h
-	$(CC) -c $<
+	$(CC) $(CFLAGS) -c $<
 
 clean:
 	rm list.o
