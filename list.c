@@ -82,7 +82,7 @@ void  list_destroy(List* l){
     while(curr != NULL){
         Node* temp = curr;
         curr = curr->next;
-        free(temp);
+        node_destroy(temp);
     }
     free(l);
 }
