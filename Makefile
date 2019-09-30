@@ -1,8 +1,8 @@
 CC=gcc
 CFLAGS=-Wall -std=gnu99
-OBJ=bubble_sort
+OBJ=selection_sort
 
-$(OBJ): bubble_sort.c list.o node.o
+$(OBJ): selection_sort.c list.o node.o
 	@echo Linking $@...
 	@$(CC) $(CFLAGS) -o $@ $< list.o node.o
 
@@ -18,4 +18,4 @@ clean:
 	@echo Cleaning...
 	@rm list.o
 	@rm node.o
-	@rm bubble_sort
+	@rm $(OBJ)

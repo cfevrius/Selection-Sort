@@ -40,40 +40,27 @@ void  list_append(List* l, int i){
     }
 }
 
+void swap(Node* node1, Node* node2){
+    Node* orig_prev_node1 = node1->prev;
+    Node* orig_next_node2 = node2->next;
+    node2->next = node1;
+    node2->prev = orig_prev_node1;
+    node1->next = orig_next_node2;
+    node1->prev = node2;
+}
+
 void  list_sort(List* l){
-    bool swapped = true;
-    while ( swapped ){
-        swapped = false;
-        for(Node* curr = l->head; curr->next != NULL; curr = curr->next){
-            if( (curr->data) > (curr->next->data) ){
-                
-                Node* first = curr->prev;                
-                Node* last  = curr->next->next;
-
-                Node* node1 = curr;
-                Node* node2 = curr->next; 
-               
-                if(node1->prev == NULL){
-                    l->head = node2;
-                }  
-
-                node2->prev = first;
-                node2->next = node1;
-
-                node1->prev = node2;
-                node1->next = last; 
-                 
-                if(first) {
-                    first->next = node2;
-                }
-                
-                if(last)
-                    last->prev = node1;
-
-                curr = node2;
-                swapped = true;
+    Node* offset = l->head;
+    for(int i = 0; i < 9; i++){
+        int min        = offset->data;
+        Node* min_addr = offset;
+        for(Node* curr = offset; curr; curr = curr->next){
+            if(curr->data < min){
+                min_addr = curr;
             }
         }
+        swap(offset, min_addr);
+        offset = offset->next;
     }
 }
 
