@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -std=gnu99
+CFLAGS=-Wall -std=c99
 OBJ=selection_sort
 
 $(OBJ): selection_sort.c list.o node.o

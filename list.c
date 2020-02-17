@@ -52,7 +52,7 @@ void swap(List* l, Node* node1, Node* node2){
     if(orig_prev_node1 == 0){
         l->head = node2;
         node2->prev = NULL;
-    /* first node in not head */
+    /* first node is not head */
     }else{
         node2->prev = orig_prev_node1;
         orig_prev_node1->next = node2;
@@ -104,6 +104,7 @@ void  list_sort(List* l){
 
 void delete(Node* curr){
     Node* orig_next_next = curr->next->next; 
+    node_destroy(curr->next);
     if(orig_next_next){
         curr->next = orig_next_next;
         orig_next_next->prev = curr;
