@@ -4,7 +4,7 @@ OBJ=selection_sort
 
 $(OBJ): selection_sort.c list.o node.o
 	@echo Linking $@...
-	@$(CC) $(CFLAGS) -o $@ $< list.o node.o
+	@$(CC) $(CFLAGS) -o $@ $^
 
 node.o: node.c node.h
 	@echo Linking $@...
